@@ -14,13 +14,27 @@
   и выводя на экран результаты
 
 """
+def accept(one_str, two_str):
+
+  if one_str == str(one_str) and two_str == str(two_str):
+    if one_str == two_str:
+      return 1
+    elif len(one_str) > len(two_str):
+      return 2
+    elif "learn" in two_str:
+      return 3
+  else:
+    return 0
 
 def main():
     """
     Эта функция вызывается автоматически при запуске скрипта в консоли
     В ней надо заменить pass на ваш код
     """
-    pass
-    
+    print(accept(1, 'Str_1')) # не строки - вернуть 0
+    print(accept('Str_3', 'Str_3')) # строки одинаковые, вернуть 1
+    print(accept('Str_2.0', 'Str_2')) # строки разные и первая длиннее, вернуть 2
+    print(accept('Str_4', 'learn')) # строки разные и вторая строка 'learn', возвращает 3
+
 if __name__ == "__main__":
     main()
