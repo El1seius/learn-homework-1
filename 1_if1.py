@@ -26,7 +26,7 @@ def main():
     if user_age <= 8:
         print('Вы должны ходить в садик')
     elif 8 < user_age <= 18:
-       print('Вы должны учиться в школе')
+        print('Вы должны учиться в школе')
     elif 18 < user_age <= 24:
         print('Вы должны учиться в Вузе')
     elif 24 < user_age:

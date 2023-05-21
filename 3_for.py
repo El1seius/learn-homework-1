@@ -21,11 +21,10 @@ sold_phone = [
     {'product': 'Samsung Galaxy 21', 'items_sold': [343, 390, 238, 437, 214, 494, 441, 518, 212, 288, 272, 247]},
   ]
 
-
 sum_all_sold_phones = 0
 counter_all_sold = 0
 for one_phone in sold_phone:
-  
+
     def sum_sold_every_phone(items_sold_phone):
         sold_every_phone = 0
         for score in items_sold_phone:

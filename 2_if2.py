@@ -15,7 +15,6 @@
 
 """
 
-
 def accept(one_str, two_str):
 
     if  one_str == str(one_str) and two_str == str(two_str):
