@@ -14,27 +14,29 @@
   и выводя на экран результаты
 
 """
+
+
 def accept(one_str, two_str):
 
-  if one_str == str(one_str) and two_str == str(two_str):
-    if one_str == two_str:
-      return 1
-    elif len(one_str) > len(two_str):
-      return 2
-    elif "learn" in two_str:
-      return 3
-  else:
-    return 0
+    if  one_str == str(one_str) and two_str == str(two_str):
+        if one_str == two_str:
+            print(1)
+        elif len(one_str) > len(two_str):
+           print(2)
+        elif "learn" in two_str:
+            print(3)
+    else:
+        print(0)
+
 
 def main():
-    """
-    Эта функция вызывается автоматически при запуске скрипта в консоли
-    В ней надо заменить pass на ваш код
-    """
-    print(accept(1, 'Str_1')) # не строки - вернуть 0
-    print(accept('Str_2', 'Str_2')) # строки одинаковые, вернуть 1
-    print(accept('Str_3.0', 'Str_3')) # строки разные и первая длиннее, вернуть 2
-    print(accept('Str_4', 'learn')) # строки разные и вторая строка 'learn', возвращает 3
+    accept(1, 'Str_1')          # не строки - вернуть 0
+    accept('Str_2', 'Str_2')    # строки одинаковые, вернуть 1
+    accept('Str_3.0', 'Str_3')  # строки разные и первая длиннее, вернуть 2
+    accept('Str_4', 'learn')    # строки разные и вторая строка 'learn', возвращает 3
+    accept('Str_5', 3.6)        # не строки - вернуть 0
+    accept('Str_6', 'Str_6.0')  # строки разные и ВТОРАЯ длиннее, вернуть ???
+
 
 if __name__ == "__main__":
     main()
