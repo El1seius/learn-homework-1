@@ -25,11 +25,7 @@ def ask_user(answers_dict):
     """
     while True:
         input_questions = input('Введите ваш вопрос: ')
-
-        for score in questions_and_answers:
-            
-            if input_questions == score:
-                print(questions_and_answers.get(score))
+        print(questions_and_answers.get(input_questions, 'Ответ не запрограммирован'))
 
     
 if __name__ == "__main__":
