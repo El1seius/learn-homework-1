@@ -19,6 +19,10 @@ import settings
 import ephem, datetime
 
 
+dt_now = datetime.date.today()
+today_date = dt_now.strftime('%Y/%m/%d')
+
+
 logging.basicConfig(format='%(name)s - %(levelname)s - %(message)s', level=logging.INFO, 
                     filename='bot.log')
 
@@ -33,10 +37,6 @@ def question_user(update, context):
     update.message.reply_text(text)
 
 
-dt_now = datetime.date.today()
-today_date = dt_now.strftime('%Y/%m/%d')
-
-
 def chek_to_planet(update, context):
     user_text = update.message.text.split()
 
@@ -48,32 +48,23 @@ def chek_to_planet(update, context):
         update.message.reply_text(user_planet)
 
     if 'Mercury' in user_text:
-        user_planet = ephem.Mercury(today_date)
-        return const_print(user_planet)
+        return const_print(ephem.Mercury(today_date))
     elif 'Venus' in user_text:
-        user_planet = ephem.Venus(today_date)
-        return const_print(user_planet)
+        return const_print(ephem.Venus(today_date))
     elif 'Earth' in user_text:
-        user_planet = 'Наша планета не отображается для нас на небе, поэтому не может находиться в каком-либо созвездии))'
-        return const_error(user_planet)
+        return const_error('Наша планета не отображается для нас на небе, поэтому не может находиться в каком-либо созвездии))')
     elif 'Mars' in user_text:
-        user_planet = ephem.Mars(today_date)
-        return const_print(user_planet)
+        return const_print(ephem.Mars(today_date))
     elif 'Jupiter' in user_text:
-        user_planet = ephem.Jupiter(today_date)
-        return const_print(user_planet)
+        return const_print(ephem.Jupiter(today_date))
     elif 'Saturn' in user_text:
-        user_planet = ephem.Saturn(today_date)
-        return const_print(user_planet)
+        return const_print(ephem.Saturn(today_date))
     elif 'Uranus' in user_text:
-        user_planet = ephem.Uranus(today_date)
-        return const_print(user_planet)
+        return const_print(ephem.Uranus(today_date))
     elif 'Neptune' in user_text:
-        user_planet = ephem.Neptune(today_date)
-        return const_print(user_planet)
+        return const_print(ephem.Neptune(today_date))
     else:
-        user_planet = 'Не правильное написанние или это не планета. Напоминание: название планеты должно быть на английском и с заглавной буквы.'
-        return const_error(user_planet)
+        return const_error('Не правильное написанние или это не планета. Напоминание: название планеты должно быть на английском и с заглавной буквы.')
 
 
 def main():

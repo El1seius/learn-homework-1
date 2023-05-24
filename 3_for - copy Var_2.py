@@ -22,37 +22,18 @@ sold_phone = [
   ]
 
 
-
-
-
-#def sum_sold_every_phone(items_sold_phone):
-#    for score in items_sold_phone:
-#      sold_every_phone += score
-#     return sold_every_phone
-
-sum_test_0 = sum(sold_phone[0]['items_sold'])
-print(sum_test_0)
-
 sum_all_sold_phones = 0
-counter_all_sold = 0
-sold_every_phone = 0
 
 
 for one_phone in sold_phone:
-#    sum_test = sum(one_phone['items_sold'])
-#    print(sum_test)
-    sum_sold_phone = sum_sold_every_phone(one_phone['items_sold'])
+    sum_sold_phone = sum(one_phone['items_sold'])
+    avg_sold_every_phone = round(sum_sold_phone / len(one_phone['items_sold']), 1)
     print(f'Сумарное количество продаж {one_phone["product"]}: {sum_sold_phone}')
-
-    counter_items = len(one_phone['items_sold'])
-    avg_sold_every_phone = round(sum_sold_phone / counter_items, 1)
     print(f'Среднее количество продаж {one_phone["product"]}: {avg_sold_every_phone}')
-
     sum_all_sold_phones += sum_sold_phone
-    counter_all_sold += counter_items
 
 
-avg_sum_all_sold_phones = round(sum_all_sold_phones / counter_all_sold, 2)
+avg_sum_all_sold_phones = round(sum_all_sold_phones / len(sold_phone), 1)
 
 
 print(f'Суммарное количество продаж всех товаров: {sum_all_sold_phones}')
