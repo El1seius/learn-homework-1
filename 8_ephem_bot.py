@@ -37,34 +37,39 @@ def question_user(update, context):
     update.message.reply_text(text)
 
 
+def const_print(update, user_planet):
+    const_user_planet = ephem.constellation(user_planet(today_date))
+    update.message.reply_text(const_user_planet)
+
+
 def chek_to_planet(update, context):
     user_text = update.message.text.split()
 
-    def const_print(user_planet):
-        const_user_planet = ephem.constellation(user_planet)
-        update.message.reply_text(const_user_planet)
-
-    def const_error(user_planet):
-        update.message.reply_text(user_planet)
-
     if 'Mercury' in user_text:
-        return const_print(ephem.Mercury(today_date))
+        user_planet = ephem.Mercury
+        return const_print(update, user_planet)
     elif 'Venus' in user_text:
-        return const_print(ephem.Venus(today_date))
+        user_planet = ephem.Venus
+        return const_print(update, user_planet)
     elif 'Earth' in user_text:
-        return const_error('Наша планета не отображается для нас на небе, поэтому не может находиться в каком-либо созвездии))')
+        return update.message.reply_text('Наша планета не отображается для нас на небе, поэтому не может находиться в каком-либо созвездии))')
     elif 'Mars' in user_text:
-        return const_print(ephem.Mars(today_date))
+        user_planet = ephem.Mars
+        return const_print(update, user_planet)
     elif 'Jupiter' in user_text:
-        return const_print(ephem.Jupiter(today_date))
+        user_planet = ephem.Jupiter
+        return const_print(update, user_planet)
     elif 'Saturn' in user_text:
-        return const_print(ephem.Saturn(today_date))
+        user_planet = ephem.Saturn
+        return const_print(update, user_planet)
     elif 'Uranus' in user_text:
-        return const_print(ephem.Uranus(today_date))
+        user_planet = ephem.Uranus
+        return const_print(update, user_planet)
     elif 'Neptune' in user_text:
-        return const_print(ephem.Neptune(today_date))
+        user_planet = ephem.Neptune
+        return const_print(update, user_planet)
     else:
-        return const_error('Не правильное написанние или это не планета. Напоминание: название планеты должно быть на английском и с заглавной буквы.')
+        return update.message.reply_text('Не правильное написанние или это не планета. Напоминание: название планеты должно быть на английском и с заглавной буквы.')
 
 
 def main():
